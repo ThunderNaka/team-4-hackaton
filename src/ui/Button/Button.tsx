@@ -46,14 +46,14 @@ export const Button = forwardRef(
 
         !disabled && [
           variant === "primary" &&
-            "bg-indigo-600 text-white hover:bg-indigo-700 focus:bg-indigo-600 focus:ring-indigo-100",
+            "bg-blue-2 hover:bg-blue focus:bg-blue-2 text-white focus:ring-blue-100",
           variant === "outline" &&
-            "border-indigo-600 text-indigo-600 hover:border-indigo-700 hover:text-indigo-700 focus:ring-indigo-100",
+            "border-blue-2 text-blue-2 hover:border-blue hover:text-blue focus:ring-blue-100",
           variant === "outline-white" && "border-white text-white focus:ring-0",
           variant === "secondary" &&
-            "text-indigo bg-indigo-50 hover:bg-indigo-100 hover:text-indigo-600 focus:bg-indigo-50 focus:text-indigo-600 focus:ring-blue-100",
+            "text-blue hover:text-blue-2 focus:text-blue-2 bg-blue-50 hover:bg-blue-100 focus:bg-blue-50 focus:ring-blue-100",
           variant === "tertiary-link" &&
-            "text-indigo hover:text-indigo-700 focus:text-indigo-700 focus:ring-1 focus:ring-indigo-700",
+            "text-blue hover:text-blue focus:text-blue focus:ring-blue focus:ring-1",
         ],
 
         disabled && [
