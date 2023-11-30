@@ -45,6 +45,9 @@ export default {
           3: "#FAE2C1",
         },
       },
+      fontFamily: {
+        sans: ["Overpass", "sans-serif"],
+      },
       backgroundImage: {
         "blue-gradient-1":
           "linear-gradient(90deg, rgba(235, 245, 255, 0.80) 63.39%, rgba(233, 231, 247, 0.80) 99.73%))",
