@@ -18,6 +18,10 @@ export default {
       "2xl": "1536px",
     },
     extend: {
+      boxShadow: {
+        soft: "0px 0px 7px -5px rgba(0,0,0,0.75)",
+        strong: "0px 0px 8px -5px rgba(0,0,0,1)",
+      },
       colors: {
         blue: {
           DEFAULT: "#89BAED",
