@@ -12,21 +12,21 @@ if ("webkitSpeechRecognition" in window) {
 }
 
 export const useSpeechRecognition = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState<string[]>([]);
   const [isListening, setIsListening] = useState(false);
 
   useEffect(() => {
     if (!recognition) return;
     recognition.onresult = (event: SpeechRecognitionEvent) => {
       console.log("on result", event);
-      setText(event.results[0][0].transcript);
+      setText((prev) => [...prev, event.results[0][0].transcript]);
       recognition.stop();
       setIsListening(false);
     };
   }, []);
 
   const startListening = () => {
-    setText("");
+    // setText(text);
     setIsListening(true);
     recognition.start();
   };

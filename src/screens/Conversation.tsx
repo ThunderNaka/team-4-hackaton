@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import MainLayout from "~/components/MainLayout";
@@ -8,8 +9,16 @@ import { ROUTES } from "../router/routes";
 
 export function Conversation() {
   const navigate = useNavigate();
-  const { text, isListening, startListening } = useSpeechRecognition();
+  const { text, isListening, startListening, stopListening } =
+    useSpeechRecognition();
+  const messagesBoxRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    messagesBoxRef.current?.scrollIntoView({
+      // behavior: "instant",
+      block: "end",
+    });
+  }, [isListening, text]);
   return (
     <MainLayout>
       <div className="flex h-full flex-col gap-8">
@@ -26,25 +35,48 @@ export function Conversation() {
           >
             End conversation
           </button>
-          <div className="flex h-full flex-col items-center justify-between pb-6">
-            <h1 className="text-left text-2xl font-semibold">
-              Hi Louis, how can I help you today?
-            </h1>
+          <div className="flex h-full flex-col justify-between pb-6">
+            <div
+              ref={messagesBoxRef}
+              className="flex max-h-[400px] flex-col justify-end gap-4 overflow-scroll p-2"
+            >
+              <div className="max-w-[70%] rounded-r-2xl rounded-tl-2xl p-4 shadow-strong ">
+                <h1 className="text-left text-xl font-semibold">
+                  Hi Louis, how can I help you today?
+                </h1>
+              </div>
+              <h1 className="text-left text-2xl font-semibold">
+                <div className="flex flex-col gap-2">
+                  {text.map((t, i) => (
+                    <div
+                      key={i}
+                      className="ml-auto max-w-[70%] rounded-r-2xl rounded-tl-2xl bg-sky-100 p-4 shadow-strong "
+                    >
+                      <h1 className="text-left text-xl font-semibold">{t}</h1>
+                    </div>
+                  ))}
+                </div>
+              </h1>
+            </div>
+
             {isListening && (
-              <img src={volume} className="w-48" alt="volume"></img>
+              <img
+                src={volume}
+                className="ml-auto mr-auto w-48"
+                alt="volume"
+              ></img>
             )}
-            <div className="flex flex-col items-center justify-center gap-4 pb-6">
+            <div className="flex flex-col items-center justify-center gap-4">
               <button
-                onClick={startListening}
+                onClick={isListening ? stopListening : startListening}
                 className={`w-fit rounded-full bg-gradient-to-r from-orange-300 to-orange-100 p-6`}
               >
                 <img
                   src={microphoneIcon}
-                  className={`h-16 w-16 ${isListening && "h-8 w-8"}`}
+                  className={`h-14 w-14 ${isListening && "h-6 w-6"}`}
                   alt="adfsd"
                 ></img>
               </button>
-              {text}
               {!isListening && (
                 <h1 className="font-semibold text-gray-400">
                   PRESS HERE TO TALK
