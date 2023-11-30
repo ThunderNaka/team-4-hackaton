@@ -1,20 +1,15 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import MainLayout from "~/components/MainLayout";
+import { useSpeechRecognition } from "~/useSpeechRecognition";
 import microphoneIcon from "../assets/microphoneIcon.svg";
 import volume from "../assets/volume.svg";
 import { ROUTES } from "../router/routes";
 
 export function Conversation() {
   const navigate = useNavigate();
-  const [isRecording, setIsRecording] = useState<boolean>(false);
+  const { text, isListening, startListening } = useSpeechRecognition();
 
-  const toggleIsRecording = () => {
-    setIsRecording(!isRecording);
-  };
-
-  console.log(isRecording);
   return (
     <MainLayout>
       <div className="flex h-full flex-col gap-8">
@@ -35,21 +30,22 @@ export function Conversation() {
             <h1 className="text-left text-2xl font-semibold">
               Hi Louis, how can I help you today?
             </h1>
-            {isRecording && (
+            {isListening && (
               <img src={volume} className="w-48" alt="volume"></img>
             )}
             <div className="flex flex-col items-center justify-center gap-4 pb-6">
               <button
-                onClick={toggleIsRecording}
+                onClick={startListening}
                 className={`w-fit rounded-full bg-gradient-to-r from-orange-300 to-orange-100 p-6`}
               >
                 <img
                   src={microphoneIcon}
-                  className={`h-16 w-16 ${isRecording && "h-8 w-8"}`}
+                  className={`h-16 w-16 ${isListening && "h-8 w-8"}`}
                   alt="adfsd"
                 ></img>
               </button>
-              {!isRecording && (
+              {text}
+              {!isListening && (
                 <h1 className="font-semibold text-gray-400">
                   PRESS HERE TO TALK
                 </h1>
