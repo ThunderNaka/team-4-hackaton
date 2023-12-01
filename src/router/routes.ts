@@ -1,5 +1,6 @@
 export const ROUTES = {
   home: "/",
+  patientDashboard: "/patient",
   login: "/login",
   todayMedications: "/today-medications",
   firstQuestions: "/first-questions",

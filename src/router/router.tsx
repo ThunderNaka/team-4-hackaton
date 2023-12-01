@@ -19,7 +19,8 @@ export const Router = () => {
     <>
       <Routes location={previousLocation ?? location}>
         <Route path="*" element={<NotFound />} />
-        <Route element={<Home />} path={ROUTES.home} />
+        <Route element={<FirstQuestions />} path={ROUTES.home} />
+        <Route element={<Home />} path={ROUTES.patientDashboard} />
         <Route element={<TodayMedications />} path={ROUTES.todayMedications} />
         <Route element={<FirstQuestions />} path={ROUTES.firstQuestions} />
         <Route element={<Conversation />} path={ROUTES.conversation} />

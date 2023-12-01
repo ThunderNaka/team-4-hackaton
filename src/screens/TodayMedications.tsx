@@ -19,7 +19,7 @@ export function TodayMedications() {
           className="flex min-h-[234px] flex-col items-start justify-start gap-8 rounded-b-[5rem] bg-gradient-to-t from-blue-100 to-blue-200 p-8"
         >
           <button
-            onClick={() => navigate(ROUTES.home)}
+            onClick={() => navigate(ROUTES.patientDashboard)}
             className="w-fit rounded-2xl bg-[#786DB0] p-2 px-5 text-lg text-white"
           >
             Go back to home

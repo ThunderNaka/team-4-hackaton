@@ -30,7 +30,7 @@ export function Conversation() {
         />
         <div className="flex h-full w-full flex-col items-center gap-8 px-6">
           <button
-            onClick={() => navigate(ROUTES.home)}
+            onClick={() => navigate(ROUTES.patientDashboard)}
             className="-mt-14 w-fit rounded-2xl bg-[#786DB0] p-3 px-5 text-lg text-white"
           >
             End conversation
