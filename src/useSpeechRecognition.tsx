@@ -3,6 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { useEffect, useState } from "react";
 
+import { useTextStore } from "./stores";
+
 let recognition: any = null;
 
 if ("webkitSpeechRecognition" in window) {
@@ -12,7 +14,10 @@ if ("webkitSpeechRecognition" in window) {
 }
 
 export const useSpeechRecognition = () => {
-  const [text, setText] = useState<string[]>([]);
+  const { text, setText } = useTextStore();
+
+  // const [text, setText] = useState<string[]>([]);
+  // let text2: string[] = [];
   const [isListening, setIsListening] = useState(false);
 
   useEffect(() => {
@@ -20,6 +25,7 @@ export const useSpeechRecognition = () => {
     recognition.onresult = (event: SpeechRecognitionEvent) => {
       console.log("on result", event);
       setText((prev) => [...prev, event.results[0][0].transcript]);
+      // text2 = [...text2, event.results[0][0].transcript];
       recognition.stop();
       setIsListening(false);
     };
@@ -37,6 +43,7 @@ export const useSpeechRecognition = () => {
   };
 
   return {
+    // text2,
     text,
     isListening,
     startListening,

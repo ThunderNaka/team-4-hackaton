@@ -1,6 +1,6 @@
 import mem from "mem";
 
-import { useUserStore } from "~/stores/useUserStore";
+import { useUserStore } from "~/stores";
 import { api, getAuthHeaders } from "../axios";
 import type { ServiceResponse } from "../axios";
 

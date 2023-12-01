@@ -9,7 +9,7 @@ import type { GoogleLoginRequest } from "~/api/login";
 import { LightitLogo } from "~/assets";
 import { errorToast, useToastStore } from "~/components";
 import { ROUTES } from "~/router";
-import { useUserStore } from "~/stores/useUserStore";
+import { useUserStore } from "~/stores";
 
 export const Login = () => {
   const pushToast = useToastStore((state) => state.pushToast);
