@@ -14,9 +14,9 @@ if ("webkitSpeechRecognition" in window) {
 }
 
 export const useSpeechRecognition = () => {
-  const { text, setText } = useTextStore();
+  // const { text, setText } = useTextStore();
 
-  // const [text, setText] = useState<string[]>([]);
+  const [text, setText] = useState<string[]>([]);
   // let text2: string[] = [];
   const [isListening, setIsListening] = useState(false);
 

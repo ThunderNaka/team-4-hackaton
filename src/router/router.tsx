@@ -5,6 +5,7 @@ import type { Location } from "react-router-dom";
 import { Home, NotFound } from "~/screens";
 import { Conversation } from "~/screens/Conversation";
 import { FirstQuestions } from "~/screens/FirstQuestions";
+import { HC } from "~/screens/HC";
 import { TodayMedications } from "~/screens/TodayMedications";
 import { ModalRouter } from "./ModalRouter";
 import { ROUTES } from "./routes";
@@ -21,6 +22,7 @@ export const Router = () => {
         <Route path="*" element={<NotFound />} />
         <Route element={<FirstQuestions />} path={ROUTES.home} />
         <Route element={<Home />} path={ROUTES.patientDashboard} />
+        <Route element={<HC />} path={ROUTES.hcDashboard} />
         <Route element={<TodayMedications />} path={ROUTES.todayMedications} />
         <Route element={<FirstQuestions />} path={ROUTES.firstQuestions} />
         <Route element={<Conversation />} path={ROUTES.conversation} />

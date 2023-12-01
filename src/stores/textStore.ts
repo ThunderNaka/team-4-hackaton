@@ -10,9 +10,6 @@ export const useTextStore = create<TextStoreState>()(
   persist(
     (set) => ({
       text: [],
-      // setText: (val: string[]) => {
-      //   set(() => ({ val }));
-      // },
       setText: (val: string[]) =>
         set(() => ({
           val,

@@ -70,7 +70,7 @@ export function Home() {
               </div>
               <div className="flex flex-row justify-between pt-4">
                 <h1 className="text-lg font-semibold">Time</h1>
-                <h1 className="text-lg font-semibold">4:00 PM</h1>
+                <h1 className="text-lg font-semibold">6:30 PM</h1>
               </div>
             </div>
           </div>

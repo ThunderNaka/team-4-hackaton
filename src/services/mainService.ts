@@ -18,6 +18,10 @@ export interface StoreConversationData {
   content: string;
 }
 
+export interface GetDataData {
+  takeaway: string;
+}
+
 export interface StoreAnswerData {
   content: string;
 }
@@ -28,6 +32,13 @@ export const storeConversation = async () => {
   );
   return res.data.data.conversation;
 };
+
+export const getData = async () => {
+  const res = await axios.get<ServiceResponse<GetDataData[]>>(
+    `http://localhost/api/conversations/12/daily-report`,
+  );
+  return res.data.data;
+};
 export const storeAnswer = async (
   conversationId: string,
   data: StoreAnswerData,
@@ -35,6 +46,13 @@ export const storeAnswer = async (
   const res = await axios.post<ServiceResponse<StoreConversationData>>(
     `http://localhost/api/conversations/messages/${conversationId}`,
     data,
+  );
+  return res.data.data;
+};
+
+export const closeConversation = async (conversationId: string) => {
+  const res = await axios.put<ServiceResponse<StoreConversationData>>(
+    `http://localhost/api/conversations/${conversationId}/close`,
   );
   return res.data.data;
 };

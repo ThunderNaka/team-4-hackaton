@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import MainLayout from "~/components/MainLayout";
 import pill from "../assets/pill.svg";
+import pill2 from "../assets/pill2.svg";
 import { ROUTES } from "../router/routes";
 
 // import n from "../assets/bg-header.svg";
@@ -39,52 +40,22 @@ export function TodayMedications() {
             </div>
             <div className="flex flex-row justify-between pt-4">
               <h1 className="text-lg font-semibold">Time</h1>
-              <h1 className="text-lg font-semibold">4:00 PM</h1>
+              <h1 className="text-lg font-semibold">6:30 PM</h1>
             </div>
           </div>
           <div className="z-50  flex flex-col gap-6 divide-y divide-dashed rounded-2xl bg-white  p-4 shadow-md">
             <div className="flex flex-row gap-4 rounded-xl">
-              <img src={pill} alt="pill" />
+              <img src={pill2} alt="pill" />
               <div className="flex flex-col gap-1">
-                <h1 className="text-xl font-semibold">Carvedilol</h1>
+                <h1 className="text-xl font-semibold">Lisinopril</h1>
                 <p className="text-base text-gray-500">
-                  It’s the big red pill you take every morning and afternoon
+                  It’s the white and yellow pill you take every night
                 </p>
               </div>
             </div>
             <div className="flex flex-row justify-between pt-4">
               <h1 className="text-lg font-semibold">Time</h1>
-              <h1 className="text-lg font-semibold">4:00 PM</h1>
-            </div>
-          </div>
-          <div className="z-50  flex flex-col gap-6 divide-y divide-dashed rounded-2xl bg-white  p-4 shadow-md">
-            <div className="flex flex-row gap-4 rounded-xl">
-              <img src={pill} alt="pill" />
-              <div className="flex flex-col gap-1">
-                <h1 className="text-xl font-semibold">Carvedilol</h1>
-                <p className="text-base text-gray-500">
-                  It’s the big red pill you take every morning and afternoon
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row justify-between pt-4">
-              <h1 className="text-lg font-semibold">Time</h1>
-              <h1 className="text-lg font-semibold">4:00 PM</h1>
-            </div>
-          </div>
-          <div className="z-50  flex flex-col gap-6 divide-y divide-dashed rounded-2xl bg-white  p-4 shadow-md">
-            <div className="flex flex-row gap-4 rounded-xl">
-              <img src={pill} alt="pill" />
-              <div className="flex flex-col gap-1">
-                <h1 className="text-xl font-semibold">Carvedilol</h1>
-                <p className="text-base text-gray-500">
-                  It’s the big red pill you take every morning and afternoon
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row justify-between pt-4">
-              <h1 className="text-lg font-semibold">Time</h1>
-              <h1 className="text-lg font-semibold">4:00 PM</h1>
+              <h1 className="text-lg font-semibold">8:00 PM</h1>
             </div>
           </div>
         </div>
